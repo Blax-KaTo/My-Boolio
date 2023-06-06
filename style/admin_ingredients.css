@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.admin-container {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.admin-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.admin-button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.ingredients-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.ingredient-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ingredient-item h3 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.ingredient-item p {
+    margin-bottom: 10px;
+}
+
+.ingredient-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.admin-action {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.admin-action.admin-action-deactivate {
+    background-color: #ffc107;
+}
+
+.admin-action.admin-action-activate {
+    background-color: #28a745;
+}
+
+.admin-action.admin-action-delete {
+    background-color: #dc3545;
+}

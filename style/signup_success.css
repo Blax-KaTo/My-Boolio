@@ -1,0 +1,44 @@
+.main-content
+{
+	display: grid;
+	margin: 20px;
+	padding: 10px;
+	background: lightcoral;
+	font-family: 'Nirmala UI';
+}
+
+h2
+{
+	margin: 10px;
+}
+
+p
+{
+	margin: 10px;
+	font-size: 22px;
+}
+
+button
+{
+	padding: 5px 10px;
+	margin: 10px 0px 2px 0px;
+	font-size: 17px;
+	background: #fff;
+	border: none;
+}
+
+.btn-cont
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 20px;
+	padding: 10px;
+	background: lightcoral;
+}
+
+.btn-cont button
+{
+	margin: 10px;
+	padding: 5px 30px;
+}

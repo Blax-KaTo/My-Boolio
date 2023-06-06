@@ -1,0 +1,296 @@
+body
+{
+	font-family: 'Nirmala UI';
+}
+.main-content
+{
+	display: grid;
+	padding: 20px;
+	font-family: 'Nirmala UI';
+}
+
+.main-content div
+{
+	margin-top: 8px;
+}
+
+.tooltip-cont
+{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	/* background-color: blueviolet; */
+}
+
+.tooltip-cont p 
+{
+	font-size: 22px;
+}
+
+.tooltip-cont div
+{
+	display: flex;
+	align-items: center;
+	padding: 0px 0px 10px 10px;
+}
+
+.tooltip-cont .btn
+{
+	text-align: center;
+	padding: 10px;
+	background: lightcoral;
+	color: #fff;
+	font-size: 18px;
+	margin: 0px;
+	border: none;
+}
+
+.tooltip-cont .btn:hover
+{
+	border: 5px solid #fa8c88;
+	color: #fff;
+}
+
+hr
+{
+	background: lightcoral;
+	height: 1px;
+	border: none;
+	margin-top: 0px;
+}
+
+.orders-cont
+{
+	padding: 10px;
+	background: lightcoral;
+	display: flex;
+	justify-content: space-between;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.orders-cont b
+{
+	color: #fff;
+}
+
+.btn-cont
+{
+	padding: 10px;
+	background: lightcoral;
+	display: flex;
+	place-items: center;
+}
+
+.btn
+{
+	text-align: center;
+	background: #fff;
+	border: 12px solid #fa8c88;
+	padding: 10px;
+	margin: auto;
+	width: 100%;
+	text-decoration: none;
+	color: lightcoral;
+}
+
+.btn:hover
+{
+	background: #fa8c88;
+	color: #fff;
+}
+
+.btn p
+{
+	margin: 0 auto;
+}
+
+.btn p b
+{
+	color: #ff514b;
+}
+
+footer
+{
+	margin: 10px;
+	padding: 10px;
+}
+
+footer p
+{
+	color: lightcoral;
+	font-size: 18px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+footer p b
+{
+	color: #ff514b;
+}
+
+/* Pop-Up Modal */
+
+.bg-pannel
+{
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #000000b0;
+	height: 100%;
+	width: 100%;
+}
+
+.pop-up
+{
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #ffffff;
+	padding: 10px;
+	border-radius: 20px;
+	height: 50%;
+	width: 80%;
+}
+
+@media screen and (min-width: 600px)
+{
+	.pop-up
+	{
+		top: 60%;
+		height: 70%;
+	}
+}
+
+.pop-up-header
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 18%;
+	padding: 5px 5px 10px 5px;
+	border-bottom: 1px solid #fa8c88;
+}
+
+@media screen and (min-width: 600px)
+{
+	.pop-up-header
+	{
+		padding: 5px 20px 10px 20px;
+		border-bottom: 1px solid #fa8c88;
+	}
+
+	.pop-up-header p
+	{
+		border: 1px solid #fa8c88;
+	}
+}
+
+.pop-up-header p
+{
+	padding: 10px 20px;
+	border-radius: 10px;
+	border: 1px solid #fa8c88;
+	font-size: 18px;
+}
+
+.pannel-cont
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 25px;
+}
+
+.PH-btn-right
+{
+	display: flex;
+	justify-content: right;
+	height: 50%;
+	width: 50%;
+}
+
+.h-icon-right
+{
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	height: 100%;
+	width: 50%;
+}
+
+.h-icon-right img
+{
+	height: 50%;
+	border: 1px solid #fa8c88;
+	border-radius: 10px;
+	padding: 14px;
+}
+
+.pannel
+{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 2fr 2fr;
+	grid-gap: 15px;
+	grid-template-areas: 
+	"search post sell"
+	"scan scan scan";
+	border-radius: 20px;
+	height: 50%;
+	width: 85%;
+}
+
+.pannel-btns
+{
+	display: flex;
+	justify-content: center;
+	border-radius: 20px;
+	background-color: #ffffff;
+	font-size: 14px;
+	padding: 10px;
+	border: 1px solid #fa8c88;
+	border-radius: 10px;
+	transition: 0.7s;
+}
+
+.pannel-btns:hover
+{
+	background-color: lightcoral;
+	font-size: 15px;
+	color: #fff;
+}
+
+title
+{
+	font-size: 12px;
+}
+
+#order-btn
+{
+	grid-area: search;
+}
+
+#about-btn
+{
+	grid-area: post;
+}
+
+#blog-btn
+{
+	grid-area: sell;
+}
+
+#account-btn
+{
+	grid-area: scan;
+}
+
+#scan-btn img
+{
+	height: 50%;
+	width: 15%;
+}

@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.admin-container {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.admin-header {
+    margin-bottom: 20px;
+}
+
+.admin-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.ingredient-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.ingredient-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.ingredient-form input[type="text"],
+.ingredient-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.add-button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
