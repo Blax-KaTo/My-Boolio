@@ -12,21 +12,12 @@ if (isset($_SESSION['selectedProducts']) && !empty($_SESSION['selectedProducts']
     exit();
 }
 
-// Process the ingredient selection and redirect to order.php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve the selected ingredients for each product
-    $selectedIngredients = array();
-
-    foreach ($selectedProducts as $productId) {
-        $productIngredients = $_POST['selectedIngredients'][$productId];
-        $selectedIngredients[$productId] = $productIngredients;
-    }
-
-    // Store the selected ingredients in the session
-    $_SESSION['selectedIngredients'] = $selectedIngredients;
-
-    // Redirect to order.php
-    header("Location: order.php");
+// Retrieve selected ingredients for each product
+if (isset($_SESSION['selectedIngredients']) && !empty($_SESSION['selectedIngredients'])) {
+    $selectedIngredients = $_SESSION['selectedIngredients'];
+} else {
+    // Redirect to ingredient.php if no ingredients are selected
+    header("Location: ingredient.php");
     exit();
 }
 
@@ -54,16 +45,16 @@ foreach ($selectedProducts as $productId) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Boolio | Ingredients</title>
-    <link rel="stylesheet" type="text/css" href="style/ingredient.css">
+    <title>My Boolio | Order</title>
+    <link rel="stylesheet" type="text/css" href="style/order.css">
     <?php include("header.php"); ?>
 </head>
 <body>
     <div class="main-content">
-        <h1>Ingredients</h1>
+        <h1>Order</h1>
 
-        <!-- Display the products and their ingredients -->
-        <form action="" method="post">
+        <!-- Display the selected products and their ingredients -->
+        <div class="order-details">
             <?php foreach ($products as $key => $product) : ?>
                 <div class="product-card">
                     <div class="product-image">
@@ -72,25 +63,37 @@ foreach ($selectedProducts as $productId) {
                     <div class="product-details">
                         <h3><?php echo $product['name']; ?></h3>
                         <p><?php echo $product['description']; ?></p>
-                        <!-- Retrieve ingredients for the product -->
-                        <?php
-                        $ingredientQuery = "SELECT i.id, i.name FROM product_ingredients pi INNER JOIN ingredients i ON pi.ingredient_id = i.id WHERE pi.product_id = '{$product['id']}'";
-                        $ingredientResult = mysqli_query($conn, $ingredientQuery);
-                        while ($ingredient = mysqli_fetch_assoc($ingredientResult)) {
-                            ?>
-                            <input type="checkbox" name="selectedIngredients[<?php echo $product['id']; ?>][]" value="<?php echo $ingredient['id']; ?>">
-                            <?php echo $ingredient['name']; ?>
-                            <br>
+                        <h4>Selected Ingredients:</h4>
+                        <ul>
                             <?php
-                        }
-                        ?>
+                            $productId = $product['id'];
+                            $productIngredients = $selectedIngredients[$productId];
+
+                            foreach ($productIngredients as $ingredientId) {
+                                $ingredientQuery = "SELECT name FROM ingredients WHERE id = '$ingredientId' AND active = 1";
+                                $ingredientResult = mysqli_query($conn, $ingredientQuery);
+                                $ingredient = mysqli_fetch_assoc($ingredientResult);
+
+                                if ($ingredient) {
+                                    ?>
+                                    <li><?php echo $ingredient['name']; ?></li>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </ul>
                     </div>
                 </div>
             <?php endforeach; ?>
 
-            <button type="submit">Proceed to Order</button>
-        </form>
+            <!-- Add the delivery information form here -->
+            <form action="process_order.php" method="post">
+                <!-- Add the necessary input fields and elements for delivery information -->
+            </form>
+
+            <button type="submit">Place Order</button>
+        </div>
     </div>
-    <script src="script/ingredient.js"></script>
+    <script src="script/order.js"></script>
 </body>
 </html>
