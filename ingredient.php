@@ -15,11 +15,15 @@ if (isset($_SESSION['selectedProducts']) && !empty($_SESSION['selectedProducts']
 // Process the ingredient selection and redirect to order.php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the selected ingredients for each product
-    $selectedIngredients = $_POST['selectedIngredients'];
+    $selectedIngredients = array();
+
+    foreach ($selectedProducts as $productId) {
+        $productIngredients = $_POST['selectedIngredients'][$productId];
+        $selectedIngredients[$productId] = $productIngredients;
+    }
 
     // Store the selected ingredients in the session
     $_SESSION['selectedIngredients'] = $selectedIngredients;
-    var_dump($selectedIngredients);
 
     // Redirect to order.php
     header("Location: order.php");
@@ -59,7 +63,7 @@ foreach ($selectedProducts as $productId) {
         <h1>Ingredients</h1>
 
         <!-- Display the products and their ingredients -->
-        <form action="order.php" method="post">
+        <form action="" method="post">
             <?php foreach ($products as $key => $product) : ?>
                 <div class="product-card">
                     <div class="product-image">
@@ -74,7 +78,7 @@ foreach ($selectedProducts as $productId) {
                         $ingredientResult = mysqli_query($conn, $ingredientQuery);
                         while ($ingredient = mysqli_fetch_assoc($ingredientResult)) {
                             ?>
-                            <input type="checkbox" name="selectedIngredients[<?php echo $key; ?>][]" value="<?php echo $ingredient['id']; ?>">
+                            <input type="checkbox" name="selectedIngredients[<?php echo $product['id']; ?>][]" value="<?php echo $ingredient['id']; ?>">
                             <?php echo $ingredient['name']; ?>
                             <br>
                             <?php
